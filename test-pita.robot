@@ -3,8 +3,8 @@ Library    RequestsLibrary
 Library    OperatingSystem
 
 *** Variables ***
-# ${BASE_URL}    http://172.20.10.3:5000
-${BASE_URL}    http://localhost:5000
+${BASE_URL}    http://172.20.10.3:5000
+# ${BASE_URL}    http://localhost:5000
 
 *** Test Cases ***
 Test cir_round Operation With 1

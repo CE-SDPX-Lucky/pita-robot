@@ -27,7 +27,7 @@ Test cir_round Operation With 1.5
 
 
 *** Keywords ***
-Call Pita Endpoint
+Call cir_round Endpoint
     [Arguments]    ${x}  
     ${url}=    Catenate    ${BASE_URL}/cir_round/${x}
     ${response}=    GET    ${url}

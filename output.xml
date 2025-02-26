@@ -1,158 +1,223 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.10.0 on win32)" generated="2025-02-25T20:34:18.918165" rpa="false" schemaversion="5">
+<robot generator="Robot 7.1.1 (Python 3.10.0 on win32)" generated="2025-02-26T13:37:03.221374" rpa="false" schemaversion="5">
 <suite id="s1" name="Test-Pita" source="D:\sdpx-lab-exam\pita-robot\test-pita.robot">
-<test id="s1-t1" name="Test Pita Operation With 3 4 5" line="10">
-<kw name="Call Pita Endpoint">
+<test id="s1-t1" name="Test cir_round Operation With 1" line="10">
+<kw name="Call cir_round Endpoint">
 <kw name="Catenate" owner="BuiltIn">
-<msg time="2025-02-25T20:34:19.065469" level="INFO">${url} = http://localhost:5000/pita/3/4/5</msg>
+<msg time="2025-02-26T13:37:03.359888" level="INFO">${url} = http://localhost:5000/cir_round/1</msg>
 <var>${url}</var>
-<arg>${BASE_URL}/pita/${a}/${b}/${c}</arg>
+<arg>${BASE_URL}/cir_round/${x}</arg>
 <doc>Catenates the given items together and returns the resulted string.</doc>
-<status status="PASS" start="2025-02-25T20:34:19.065469" elapsed="0.000000"/>
+<status status="PASS" start="2025-02-26T13:37:03.358915" elapsed="0.000973"/>
 </kw>
 <kw name="GET" owner="RequestsLibrary">
-<msg time="2025-02-25T20:34:21.083548" level="INFO">GET Request : url=http://localhost:5000/pita/3/4/5 
- path_url=/pita/3/4/5 
+<msg time="2025-02-26T13:37:05.371832" level="INFO">GET Request : url=http://localhost:5000/cir_round/1 
+ path_url=/cir_round/1 
  headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg time="2025-02-25T20:34:21.083548" level="INFO">GET Response : url=http://localhost:5000/pita/3/4/5 
+<msg time="2025-02-26T13:37:05.371832" level="INFO">GET Response : url=http://localhost:5000/cir_round/1 
  status=200, reason=OK 
- headers={'Server': 'Werkzeug/3.1.3 Python/3.10.0', 'Date': 'Tue, 25 Feb 2025 13:34:21 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Content-Length': '3', 'Connection': 'close'} 
- body=Yes 
+ headers={'Server': 'Werkzeug/3.1.3 Python/3.10.0', 'Date': 'Wed, 26 Feb 2025 06:37:05 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Content-Length': '4', 'Connection': 'close'} 
+ body=6.28 
  </msg>
-<msg time="2025-02-25T20:34:21.083548" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-02-26T13:37:05.371832" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
 <arg>${url}</arg>
 <doc>Sends a GET request.</doc>
-<status status="PASS" start="2025-02-25T20:34:19.065469" elapsed="2.018079"/>
+<status status="PASS" start="2025-02-26T13:37:03.359888" elapsed="2.011944"/>
 </kw>
 <return>
 <value>${response}</value>
-<status status="PASS" start="2025-02-25T20:34:21.083548" elapsed="0.000000"/>
+<status status="PASS" start="2025-02-26T13:37:05.371832" elapsed="0.000000"/>
 </return>
-<msg time="2025-02-25T20:34:21.085063" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-02-26T13:37:05.372808" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
-<arg>3</arg>
-<arg>4</arg>
-<arg>5</arg>
-<status status="PASS" start="2025-02-25T20:34:19.064431" elapsed="2.020632"/>
+<arg>1</arg>
+<status status="PASS" start="2025-02-26T13:37:03.358915" elapsed="2.013893"/>
 </kw>
 <kw name="Should Be Equal As Integers" owner="BuiltIn">
-<msg time="2025-02-25T20:34:21.087034" level="INFO">Argument types are:
+<msg time="2025-02-26T13:37:05.373799" level="INFO">Argument types are:
 &lt;class 'int'&gt;
 &lt;class 'str'&gt;</msg>
 <arg>${response.status_code}</arg>
 <arg>200</arg>
 <doc>Fails if objects are unequal after converting them to integers.</doc>
-<status status="PASS" start="2025-02-25T20:34:21.086055" elapsed="0.000979"/>
+<status status="PASS" start="2025-02-26T13:37:05.372808" elapsed="0.000991"/>
 </kw>
 <kw name="Get Response Body">
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-02-25T20:34:21.090114" level="INFO">${response_body} = Yes</msg>
+<msg time="2025-02-26T13:37:05.374771" level="INFO">${response_body} = 6.28</msg>
 <var>${response_body}</var>
 <arg>${response.text}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-02-25T20:34:21.088008" elapsed="0.002106"/>
+<status status="PASS" start="2025-02-26T13:37:05.374771" elapsed="0.000000"/>
 </kw>
 <return>
 <value>${response_body}</value>
-<status status="PASS" start="2025-02-25T20:34:21.090114" elapsed="0.000000"/>
+<status status="PASS" start="2025-02-26T13:37:05.374771" elapsed="0.000000"/>
 </return>
-<msg time="2025-02-25T20:34:21.090114" level="INFO">${response_body} = Yes</msg>
+<msg time="2025-02-26T13:37:05.374771" level="INFO">${response_body} = 6.28</msg>
 <var>${response_body}</var>
 <arg>${response}</arg>
-<status status="PASS" start="2025-02-25T20:34:21.088008" elapsed="0.002106"/>
+<status status="PASS" start="2025-02-26T13:37:05.373799" elapsed="0.000972"/>
 </kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
 <arg>${response_body}</arg>
-<arg>Yes</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-02-25T20:34:21.091120" elapsed="0.000000"/>
+<arg>6.28</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-02-26T13:37:05.375745" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-02-25T20:34:19.063379" elapsed="2.027741"/>
+<status status="PASS" start="2025-02-26T13:37:03.357934" elapsed="2.018787"/>
 </test>
-<test id="s1-t2" name="Test Pita Operation With 3 4 6" line="16">
-<kw name="Call Pita Endpoint">
+<test id="s1-t2" name="Test cir_round Operation With -10" line="16">
+<kw name="Call cir_round Endpoint">
 <kw name="Catenate" owner="BuiltIn">
-<msg time="2025-02-25T20:34:21.095470" level="INFO">${url} = http://localhost:5000/pita/3/4/6</msg>
+<msg time="2025-02-26T13:37:05.378703" level="INFO">${url} = http://localhost:5000/cir_round/-10</msg>
 <var>${url}</var>
-<arg>${BASE_URL}/pita/${a}/${b}/${c}</arg>
+<arg>${BASE_URL}/cir_round/${x}</arg>
 <doc>Catenates the given items together and returns the resulted string.</doc>
-<status status="PASS" start="2025-02-25T20:34:21.094457" elapsed="0.001013"/>
+<status status="PASS" start="2025-02-26T13:37:05.378194" elapsed="0.000509"/>
 </kw>
 <kw name="GET" owner="RequestsLibrary">
-<msg time="2025-02-25T20:34:23.108605" level="INFO">GET Request : url=http://localhost:5000/pita/3/4/6 
- path_url=/pita/3/4/6 
+<msg time="2025-02-26T13:37:07.388050" level="INFO">GET Request : url=http://localhost:5000/cir_round/-10 
+ path_url=/cir_round/-10 
  headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg time="2025-02-25T20:34:23.109809" level="INFO">GET Response : url=http://localhost:5000/pita/3/4/6 
+<msg time="2025-02-26T13:37:07.388050" level="INFO">GET Response : url=http://localhost:5000/cir_round/-10 
  status=200, reason=OK 
- headers={'Server': 'Werkzeug/3.1.3 Python/3.10.0', 'Date': 'Tue, 25 Feb 2025 13:34:23 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Content-Length': '2', 'Connection': 'close'} 
- body=No 
+ headers={'Server': 'Werkzeug/3.1.3 Python/3.10.0', 'Date': 'Wed, 26 Feb 2025 06:37:07 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Content-Length': '4', 'Connection': 'close'} 
+ body=0.00 
  </msg>
-<msg time="2025-02-25T20:34:23.109809" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-02-26T13:37:07.388050" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
 <arg>${url}</arg>
 <doc>Sends a GET request.</doc>
-<status status="PASS" start="2025-02-25T20:34:21.095470" elapsed="2.014339"/>
+<status status="PASS" start="2025-02-26T13:37:05.378703" elapsed="2.009347"/>
 </kw>
 <return>
 <value>${response}</value>
-<status status="PASS" start="2025-02-25T20:34:23.109809" elapsed="0.000000"/>
+<status status="PASS" start="2025-02-26T13:37:07.388050" elapsed="0.000000"/>
 </return>
-<msg time="2025-02-25T20:34:23.109809" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-02-26T13:37:07.389577" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
-<arg>3</arg>
-<arg>4</arg>
-<arg>6</arg>
-<status status="PASS" start="2025-02-25T20:34:21.093484" elapsed="2.016325"/>
+<arg>-10</arg>
+<status status="PASS" start="2025-02-26T13:37:05.378194" elapsed="2.011383"/>
 </kw>
 <kw name="Should Be Equal As Integers" owner="BuiltIn">
-<msg time="2025-02-25T20:34:23.112841" level="INFO">Argument types are:
+<msg time="2025-02-26T13:37:07.389577" level="INFO">Argument types are:
 &lt;class 'int'&gt;
 &lt;class 'str'&gt;</msg>
 <arg>${response.status_code}</arg>
 <arg>200</arg>
 <doc>Fails if objects are unequal after converting them to integers.</doc>
-<status status="PASS" start="2025-02-25T20:34:23.110831" elapsed="0.002010"/>
+<status status="PASS" start="2025-02-26T13:37:07.389577" elapsed="0.000000"/>
 </kw>
 <kw name="Get Response Body">
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-02-25T20:34:23.115785" level="INFO">${response_body} = No</msg>
+<msg time="2025-02-26T13:37:07.392702" level="INFO">${response_body} = 0.00</msg>
 <var>${response_body}</var>
 <arg>${response.text}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-02-25T20:34:23.114811" elapsed="0.000974"/>
+<status status="PASS" start="2025-02-26T13:37:07.391699" elapsed="0.001003"/>
 </kw>
 <return>
 <value>${response_body}</value>
-<status status="PASS" start="2025-02-25T20:34:23.115785" elapsed="0.000000"/>
+<status status="PASS" start="2025-02-26T13:37:07.392702" elapsed="0.000000"/>
 </return>
-<msg time="2025-02-25T20:34:23.115785" level="INFO">${response_body} = No</msg>
+<msg time="2025-02-26T13:37:07.392702" level="INFO">${response_body} = 0.00</msg>
 <var>${response_body}</var>
 <arg>${response}</arg>
-<status status="PASS" start="2025-02-25T20:34:23.113832" elapsed="0.001953"/>
+<status status="PASS" start="2025-02-26T13:37:07.391699" elapsed="0.001003"/>
 </kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
 <arg>${response_body}</arg>
-<arg>No</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-02-25T20:34:23.116766" elapsed="0.000000"/>
+<arg>0.00</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-02-26T13:37:07.392702" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-02-25T20:34:21.093484" elapsed="2.024843"/>
+<status status="PASS" start="2025-02-26T13:37:05.376721" elapsed="2.016938"/>
 </test>
-<status status="PASS" start="2025-02-25T20:34:18.919235" elapsed="4.200620"/>
+<test id="s1-t3" name="Test cir_round Operation With 1.5" line="22">
+<kw name="Call cir_round Endpoint">
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-02-26T13:37:07.394636" level="INFO">${url} = http://localhost:5000/cir_round/1.5</msg>
+<var>${url}</var>
+<arg>${BASE_URL}/cir_round/${x}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-02-26T13:37:07.394636" elapsed="0.000000"/>
+</kw>
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2025-02-26T13:37:09.402885" level="INFO">GET Request : url=http://localhost:5000/cir_round/1.5 
+ path_url=/cir_round/1.5 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-02-26T13:37:09.402885" level="INFO">GET Response : url=http://localhost:5000/cir_round/1.5 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/3.1.3 Python/3.10.0', 'Date': 'Wed, 26 Feb 2025 06:37:09 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Content-Length': '4', 'Connection': 'close'} 
+ body=9.42 
+ </msg>
+<msg time="2025-02-26T13:37:09.402885" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${url}</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2025-02-26T13:37:07.394636" elapsed="2.008249"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2025-02-26T13:37:09.402885" elapsed="0.000000"/>
+</return>
+<msg time="2025-02-26T13:37:09.403928" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>1.5</arg>
+<status status="PASS" start="2025-02-26T13:37:07.394636" elapsed="2.009292"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-02-26T13:37:09.404921" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-02-26T13:37:09.403928" elapsed="0.000993"/>
+</kw>
+<kw name="Get Response Body">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-02-26T13:37:09.405900" level="INFO">${response_body} = 9.42</msg>
+<var>${response_body}</var>
+<arg>${response.text}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-02-26T13:37:09.404921" elapsed="0.000979"/>
+</kw>
+<return>
+<value>${response_body}</value>
+<status status="PASS" start="2025-02-26T13:37:09.405900" elapsed="0.000000"/>
+</return>
+<msg time="2025-02-26T13:37:09.405900" level="INFO">${response_body} = 9.42</msg>
+<var>${response_body}</var>
+<arg>${response}</arg>
+<status status="PASS" start="2025-02-26T13:37:09.404921" elapsed="0.000979"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<arg>${response_body}</arg>
+<arg>9.42</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-02-26T13:37:09.405900" elapsed="0.000973"/>
+</kw>
+<status status="PASS" start="2025-02-26T13:37:07.393659" elapsed="2.013214"/>
+</test>
+<status status="PASS" start="2025-02-26T13:37:03.223432" elapsed="6.183441"/>
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="0" skip="0">All Tests</stat>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="2" fail="0" skip="0" id="s1" name="Test-Pita">Test-Pita</stat>
+<stat pass="3" fail="0" skip="0" id="s1" name="Test-Pita">Test-Pita</stat>
 </suite>
 </statistics>
 <errors>

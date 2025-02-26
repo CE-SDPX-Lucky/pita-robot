@@ -3,26 +3,33 @@ Library    RequestsLibrary
 Library    OperatingSystem
 
 *** Variables ***
-${BASE_URL}    http://172.20.10.3:5000
-# ${BASE_URL}    http://localhost:5000
+# ${BASE_URL}    http://172.20.10.3:5000
+${BASE_URL}    http://localhost:5000
 
 *** Test Cases ***
-Test Pita Operation With 3 4 5
-    ${response}=    Call Pita Endpoint    3    4    5
+Test cir_round Operation With 1
+    ${response}=    Call Pita Endpoint    1
     Should Be Equal As Integers    ${response.status_code}    200
     ${response_body}=    Get Response Body    ${response}
-    Should Be Equal As Strings    ${response_body}    Yes
+    Should Be Equal As Numbers    ${response_body}    6.28
 
-Test Pita Operation With 3 4 6
-    ${response}=    Call Pita Endpoint    3    4    6 
+Test cir_round Operation With -10
+    ${response}=    Call Pita Endpoint    -10 
     Should Be Equal As Integers    ${response.status_code}    200
     ${response_body}=    Get Response Body    ${response}
-    Should Be Equal As Strings    ${response_body}    No
+    Should Be Equal As Numbers    ${response_body}    0.00
+
+Test cir_round Operation With 1.5
+    ${response}=    Call Pita Endpoint    1.5
+    Should Be Equal As Integers    ${response.status_code}    200
+    ${response_body}=    Get Response Body    ${response}
+    Should Be Equal As Numbers    ${response_body}    9.42
+
 
 *** Keywords ***
 Call Pita Endpoint
-    [Arguments]    ${a}    ${b}    ${c}
-    ${url}=    Catenate    ${BASE_URL}/pita/${a}/${b}/${c}
+    [Arguments]    ${x}  
+    ${url}=    Catenate    ${BASE_URL}/cir_round/${x}
     ${response}=    GET    ${url}
     RETURN    ${response}
 
